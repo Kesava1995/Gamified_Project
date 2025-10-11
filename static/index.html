@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gamified Learning</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <div id="login-page">
+      <h1 class="title">🎮 Gamified Learning</h1>
+      <input type="text" id="login-username" placeholder="Username" />
+      <input type="password" id="login-password" placeholder="Password" />
+      <button id="login-btn">Login</button>
+      <p class="demo">New user? <a href="#" id="show-register">Register here</a></p>
+    </div>
+
+    <div id="register-page" class="hidden">
+        <h1 class="title">Create Account</h1>
+        <input type="text" id="register-username" placeholder="Choose a Username" />
+        <input type="password" id="register-password" placeholder="Choose a Password" />
+        <button id="register-btn">Register</button>
+        <p class="demo">Already have an account? <a href="#" id="show-login">Login here</a></p>
+    </div>
+
+    <div id="subject-page" class="hidden">
+      <h2 id="subject-title"></h2>
+    <select id="language">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="te">తెలుగు</option>
+      <option value="ur">اردو</option>
+      <option value="fr">Français (AI)</option>
+    </select>
+      
+      <div id="assignments-section" class="hidden">
+          <h3>Assigned by Teacher:</h3>
+          <div id="assignments"></div>
+      </div>
+  
+      <h3>Standard Subjects:</h3>
+      <div id="subjects"></div>
+      
+      <button id="view-scores-btn" class="secondary">View My Scores</button>
+      <button id="profile-btn" class="secondary">My Profile</button>
+      <button id="student-logout-btn" class="secondary">Logout</button>
+    </div>
+
+    <div id="quiz-page" class="hidden">
+      <h2 id="quiz-subject"></h2>
+      <div id="timer">Time Left: 15s</div>
+      <p id="question"></p>
+      <div id="options"></div>
+    </div>
+
+    <div id="result-page" class="hidden">
+      <h2 id="result-title"></h2>
+      <p id="final-score"></p>
+      <p id="medal"></p>
+      <button id="restart-btn"></button>
+    </div>
+    
+    <div id="scores-page" class="hidden">
+        <h2 id="scores-title">My Score History</h2>
+        <div id="scores-list"></div>
+        <button id="scores-back-btn">Back to Subjects</button>
+    </div>
+
+    <div id="profile-page" class="hidden">
+        <h2 id="profile-title">My Profile</h2>
+        <h3>Badges Earned:</h3>
+        <div id="badges-list"></div>
+        <button id="profile-back-btn">Back to Subjects</button>
+    </div>
+    <div id="loading-overlay" class="hidden">
+        <div class="loader"></div>
+        <p>Translating with AI...</p>
+    </div>
+
+  </div> 
+  <script src="script.js"></script>
+</body>
+</html>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

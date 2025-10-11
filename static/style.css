@@ -1,0 +1,139 @@
+/* ===== Animated Gradient Background ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(270deg, #a8edea, #fed6e3, #fbc2eb, #a6c1ee);
+    background-size: 800% 800%;
+    animation: gradientMove 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+/* ===== App Box (Wider for Teacher Dashboard) ===== */
+.app {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+    padding: 30px;
+    width: 90%;
+    max-width: 500px; /* Increased from 400px */
+    text-align: center;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.hidden { display: none !important; } /* More forceful rule to override other display properties */
+
+/* ===== Headings & Titles ===== */
+.title {
+    font-size: 30px;
+    color: #3f51b5;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(63,81,181,0.4);
+    animation: pulse 2s infinite alternate;
+}
+@keyframes pulse { from { text-shadow: 0 0 5px #3f51b5; } to { text-shadow: 0 0 25px #7986cb; } }
+
+/* ===== Inputs & Buttons ===== */
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+button {
+    width: 90%;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #4caf50, #43a047);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+button:hover { transform: scale(1.05); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+/* ===== Page Specific Buttons ===== */
+#subjects button, #options button {
+    width: 100%;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+}
+button.secondary { background: linear-gradient(135deg, #78909c, #546e7a); }
+
+/* ===== Answer Feedback ===== */
+.correct { background: linear-gradient(135deg, #66bb6a, #4caf50) !important; }
+.wrong { background: linear-gradient(135deg, #ef5350, #f44336) !important; }
+
+/* ===== Links and Text ===== */
+.demo { color: gray; font-size: 13px; margin-top: 20px; }
+.demo a { color: #3f51b5; text-decoration: none; font-weight: bold; }
+.demo a:hover { text-decoration: underline; }
+
+/* ===== Score/Badge/Profile Styles ===== */
+#scores-list table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+#scores-list th, #scores-list td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+#scores-list th { background-color: #f2f2f2; color: #333; }
+#timer { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #333; }
+.badge { display: flex; align-items: center; background-color: #f0f0f0; border-radius: 10px; padding: 10px; margin-bottom: 10px; text-align: left; }
+.badge-icon { font-size: 2.5em; margin-right: 15px; }
+.badge-name { font-weight: bold; }
+.badge-desc { font-size: 0.9em; color: #666; margin: 0; }
+.assigned-quiz { background: linear-gradient(135deg, #673ab7, #512da8) !important; }
+#assignments-section h3 { margin-top: 20px; color: #512da8; }
+
+/* ===== TEACHER DASHBOARD STYLES ===== */
+.dashboard-section { border: 1px solid #eee; border-radius: 10px; padding: 15px; margin-top: 25px; }
+.quiz-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #ddd; }
+.small-btn { padding: 5px 10px !important; font-size: 14px !important; width: auto !important; margin-left: 5px !important; }
+.add-q { background: linear-gradient(135deg, #2196f3, #1976d2); }
+.assign-q { background: linear-gradient(135deg, #ff9800, #f57c00); }
+
+/* ===== Modal Styles ===== */
+.modal { position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; }
+.modal-content { background-color: #fefefe; padding: 20px; border-radius: 10px; width: 90%; max-width: 500px; position: relative; }
+.close-btn { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; top: 10px; right: 20px; }
+
+/* Add this to the end of static/style.css */
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+#loading-overlay p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

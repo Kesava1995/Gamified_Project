@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div id="teacher-login-page">
+            <h1 class="title">Teacher Portal</h1>
+            <input type="text" id="teacher-username" placeholder="Teacher Username" />
+            <input type="password" id="teacher-password" placeholder="Password" />
+            <button id="teacher-login-btn">Login</button>
+            <p class="demo">Demo → Username: teacher1 | Password: pass</p>
+        </div>
+
+        <div id="dashboard-page" class="hidden">
+            <h1 class="title" id="dashboard-title">Dashboard</h1>
+            
+            <div class="dashboard-section">
+                <h3>Class Analytics</h3>
+                <label for="class-select">Select a Class:</label>
+                <select id="class-select"></select>
+                <div style="width: 100%; margin-top: 20px;">
+                    <canvas id="analytics-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <h3>Class Roster Management</h3>
+                <p>Select a class above to manage its roster.</p>
+                <div id="roster-management" class="hidden">
+                    <h4>Add Students to Class:</h4>
+                    <select id="unassigned-student-select"></select>
+                    <button id="enroll-student-btn" class="small-btn">Enroll Student</button>
+                </div>
+            </div>
+            
+            <div class="dashboard-section">
+                <h3>My Quizzes</h3>
+                <div id="quiz-list"></div>
+                <input type="text" id="new-quiz-name" placeholder="New Quiz Name" />
+                <button id="create-quiz-btn">Create New Quiz</button>
+            </div>
+            
+            <button id="logout-btn" class="secondary">Logout</button>
+        </div>
+
+        <div id="add-question-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3 id="modal-quiz-name">Add Question</h3>
+                <input type="text" id="question-text" placeholder="Question" />
+                <input type="text" id="option1" placeholder="Option 1" />
+                <input type="text" id="option2" placeholder="Option 2" />
+                <input type="text" id="option3" placeholder="Option 3" />
+                <label>Correct Answer:</label>
+                <select id="correct-answer-select">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <button id="save-question-btn">Save Question</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="teacher.js"></script>
+</body>
+</html>
