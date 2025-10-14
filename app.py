@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import sqlite3
 from transformers import pipeline
 import json
-
+import os
 
 print("Loading English to French translation model...")
 translator_en_fr = pipeline("translation_en_to_fr", model="Helsinki-NLP/opus-mt-en-fr")
@@ -423,5 +423,5 @@ def enroll_student_api():
         conn.close()
 
 if __name__ == '__main__':
-    # Use 0.0.0.0 to make it accessible outside the VM/container
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host='0.0.0.0', port=port)
